@@ -1,0 +1,23 @@
+@import "variables";
+
+.navbar {
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+      font-size: $fz-heading;
+      color: $white;
+      font-weight: $font-bold;
+      margin: 0.75rem 1rem;
+  }
+  &__search-bar {
+      margin: 0 20px;
+    &--input {
+        font-size: $fz-xl;
+        margin: 1rem;
+        border-radius: 0.825rem;
+    }
+  }
+}

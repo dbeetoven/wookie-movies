@@ -10,6 +10,7 @@ import { TopbarComponent } from './topbar.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[TopbarComponent]
 })
 export class TopbarModule { }
