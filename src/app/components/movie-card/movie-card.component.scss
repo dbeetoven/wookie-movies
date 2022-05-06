@@ -1,1 +1,23 @@
 @import "variables";
+
+.card{
+    width: 20rem;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        &__title{
+            font-size: $fz-xxl;
+            font-weight: $font-bold;
+        }
+        &__rating{
+            font-size: $fz-xl;
+            font-weight: $font-bold;
+        }
+    }
+    &__content{
+        margin:1rem;
+    }
+    &__footer{
+
+    }
+}

@@ -1,1 +1,8 @@
 @import "variables";
+
+.movies {
+ &__list{
+     display: flex;
+     justify-content: space-between;
+ }
+}
