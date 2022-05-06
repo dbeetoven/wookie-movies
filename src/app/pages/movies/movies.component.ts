@@ -1,4 +1,6 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { IMovies } from 'src/app/constant/IMovie';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -8,12 +10,11 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MoviesComponent implements OnInit {
 
+  $iMovies: Observable<any>=new Observable();
   constructor(private movieService:MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe((movie)=>{
-      console.log({movie})
-    });
+   this.$iMovies=this.movieService.getMovies()
   }
 
 }
