@@ -9,7 +9,7 @@ import { TopbarModule } from './shared/topbar/topbar.module';
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
+import { ComponentsModule } from './../../components/components.module';
 
 
 @NgModule({
   declarations: [
-    MoviesComponent
+    MoviesComponent,
+    
   ],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    ComponentsModule
   ]
 })
 export class MoviesModule { }
