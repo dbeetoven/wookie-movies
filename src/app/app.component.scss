@@ -1,3 +1,7 @@
-.main__container{
-    margin: 0.75rem 1rem;
+@import "variables";
+.main__container {
+  margin: 0.75rem 1rem;
+}
+.main {
+  background-color: $lightest-slate;
 }

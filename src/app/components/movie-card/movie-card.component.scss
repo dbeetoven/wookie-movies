@@ -1,23 +1,48 @@
 @import "variables";
 
-.card{
-    width: 20rem;
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        &__title{
-            font-size: $fz-xxl;
-            font-weight: $font-bold;
-        }
-        &__rating{
-            font-size: $fz-xl;
-            font-weight: $font-bold;
-        }
+.card {
+    &-container {
+      height: 22rem;
+      background-size: cover;
+      border-radius: 30px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 80px 0;
+      transition: all 0.3s;
+      cursor: pointer;
     }
-    &__content{
-        margin:1rem;
+    &-container:hover {
+      transform: scale(1.1)
     }
-    &__footer{
-
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      height: 100px;
+      width: calc(100% - 2rem);
+      border-radius: 20px;
+      background-color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      box-shadow: 0px 2px 20px 0px #67676738;
+      padding: 0 1rem;
     }
-}
+    &-title {
+      font-size: $fz-md;
+      font-weight: $font-bold;
+      text-align: start;
+      margin: 2px 0;
+    }
+    &-actors {
+      font-size: 12px;
+      text-align: start;
+      margin: 0 0 4px 0;
+    }
+    &-cast{
+        font-weight: $font-bold;
+    }
+  }

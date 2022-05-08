@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Movie } from 'src/app/constant/IMovie';
 
 @Component({
@@ -8,4 +8,10 @@ import { Movie } from 'src/app/constant/IMovie';
 })
 export class MovieCardComponent {
   @Input() movie!: Movie;
+ 
+  @Output() goToDetail = new EventEmitter<Movie>();
+
+  goTo(movie:Movie):void {
+    this.goToDetail.emit(movie);
+  }
 }

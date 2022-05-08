@@ -1,13 +1,12 @@
-<ng-container *ngIf="(iMovies|async) as moviesData">
-
-    <article class="movies" *ngFor="let genre of moviesData.genres">
-        <h3 class="movies__genres">{{genre}}</h3>
-        <div class="movies__list">
-            <ng-container *ngFor="let movie of moviesData.movies">
-                <ng-container *ngIf="hasGenre(movie.genres,genre)">
-                    <app-movie-card [movie]="movie"></app-movie-card>
-                </ng-container>
-            </ng-container>
-        </div>
+<ng-container *ngIf="movieGenres | async as moviesData">
+  <ng-container *ngFor="let movieGenre of moviesData.movieGenres">
+    <article class="movies">
+      <h3 class="movies__genres">{{ movieGenre.genre }}</h3>
+      <div class="movies__list">
+        <ng-container *ngFor="let movie of movieGenre.movies">
+          <app-movie-card [movie]="movie" (goToDetail)="goTo($event)"></app-movie-card>
+        </ng-container>
+      </div>
     </article>
+  </ng-container>
 </ng-container>

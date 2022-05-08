@@ -1,16 +1,12 @@
-<div class="card">
-    <div class="card__header">
-        <h3 class="card__header__title">
-            {{movie.title}}
-        </h3>
-        <p class="card__header__rating">******</p>
-    </div>
-    <div class="card__content">
-        <div class="card__content__description">
-            {{movie.overview}}
-        </div>
-    </div>
-    <div class="card__footer">
+<div class="card-container" [style.background]="'url(' + movie.poster + ')'" (click)="goTo(movie)">
+  <div class="card-content">
+    <h3 class="card-title">{{ movie.title }}</h3>
 
-    </div>
+    <p class="card-actors">
+      <span class="card-cast">Director: </span> {{ movie.director }}
+    </p>
+    <p class="card-actors">
+      <span class="card-cast">Cast: </span>{{ movie.cast }}
+    </p>
+  </div>
 </div>

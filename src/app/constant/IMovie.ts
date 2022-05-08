@@ -30,6 +30,29 @@ export interface IMovies {
 export interface IMovie {
   movies: Movie[];
 }
+
+export interface MovieGenre {
+  genre: string;
+  movies: Movie[];
+}
+export class MovieGenre {
+  constructor(genre: string, movies: Movie[]) {
+    this.genre = genre;
+    this.movies = movies.filter((movie) => movie.genres.indexOf(genre) > -1);
+  }
+}
+
+export interface MovieGenres {
+  movieGenres: MovieGenre[];
+}
+
+export class MovieGenres {
+  constructor(iMovies: IMovies) {
+    this.movieGenres = iMovies.genres.map(
+      (genre) => new MovieGenre(genre, iMovies.movies)
+    );
+  }
+}
 export class IMovies {
   genres!: string[];
   movies!: Movie[];
@@ -39,7 +62,7 @@ export class IMovies {
     this.genres = this.getGenres(movies.movies);
   }
 
- private getGenres(movies: Movie[]): string[] {
+  private getGenres(movies: Movie[]): string[] {
     const genres = movies.map((mov) => mov.genres);
     return Array.from(new Set(genres.flat()));
   }

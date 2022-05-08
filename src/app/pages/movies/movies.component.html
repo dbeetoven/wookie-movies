@@ -1,3 +1,3 @@
 <section class="container">
-<app-movie-list [iMovies]="$iMovies"></app-movie-list>
+<app-movie-list [movieGenres]="$movieGenres" (goToDetail)="goToDetail($event)"></app-movie-list>
 </section>

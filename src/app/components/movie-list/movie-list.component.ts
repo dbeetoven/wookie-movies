@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMovies } from './../../constant/IMovie';
+import { Movie, MovieGenres } from './../../constant/IMovie';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,17 +8,23 @@ import { IMovies } from './../../constant/IMovie';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
- @Input() iMovies!: Observable<any>;
+ @Input() movieGenres!: Observable<MovieGenres>;
  
-  ngOnInit(): void {
-    this.iMovies.subscribe((res)=>{
-      
-      console.log({res});
-    })
-    
-  }
+ @Output() goToDetail = new EventEmitter<Movie>();
+
 
   hasGenre(genres:string[], genre:string):boolean{
     return genres.indexOf(genre)>-1;
+  }
+
+  goTo(movie:Movie):void {
+    this.goToDetail.emit(movie);
+  }
+
+  ngOnInit(): void {
+    this.movieGenres.subscribe((res)=>{
+      console.log({res});
+    })
+    
   }
 }

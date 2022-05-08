@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { IMovies } from 'src/app/constant/IMovie';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie.service';
+import { Movie, MovieGenres } from './../../constant/IMovie';
 
 @Component({
   selector: 'app-movies',
@@ -10,11 +11,14 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MoviesComponent implements OnInit {
 
-  $iMovies: Observable<any>=new Observable();
-  constructor(private movieService:MovieService) { }
+  $movieGenres: Observable<MovieGenres>=new Observable();
+  constructor(private movieService:MovieService,private router: Router,private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-   this.$iMovies=this.movieService.getMovies()
+   this.$movieGenres=this.movieService.getMovies().pipe(map((iMovie)=>new MovieGenres(iMovie)))
   }
 
+  goToDetail(movie:Movie):void{
+    this.router.navigate(['/detail',movie.id],{relativeTo: this.route});
+  }
 }
